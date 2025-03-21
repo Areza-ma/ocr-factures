@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Résultat OCR</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container fade-in">
+        <h1>📝 Résultat de l'OCR</h1>
+        <pre>{{ text }}</pre>
+        
+        <a href="/">⬅ Retour</a>
+        <button onclick="downloadText()">📥 Télécharger le texte</button>
+    </div>
+
+    <footer>
+        <p>Créé par <strong>Anir</strong> — <a href="https://www.linkedin.com/in/anir-hamari" target="_blank">Mon LinkedIn</a></p>
+    </footer>
+
+    <script>
+        function downloadText() {
+            const text = `{{ text|safe }}`;
+            const blob = new Blob([text], { type: "text/plain" });
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(blob);
+            link.download = "texte_extrait.txt";
+            link.click();
+        }
+    </script>
+</body>
+</html>

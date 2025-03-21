@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR - Analyse de Factures</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container fade-in">
+        <h1>📄 Analyse de Factures ou une image afin d'en extraire le texte, si possible avec une bonne qualité.</h1>
+        <p>Importez une facture et nous en extrairons le texte !</p>
+        
+        <form action="/" method="post" enctype="multipart/form-data">
+            <label class="upload-btn">
+                📤 Choisir une image
+                <input type="file" name="file" accept="image/*" required>
+            </label>
+            <button type="submit">Analyser 🔍</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>Créé par <strong>anir-hamari</strong> — <a href="https://www.linkedin.com/in/anir-hamari" target="_blank">Mon LinkedIn</a></p>
+    </footer>
+</body>
+</html>
